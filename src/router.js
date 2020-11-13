@@ -13,6 +13,8 @@ Vue.use(Router)
 
 // 路由的作用就是统一管理自定义标签 组件嵌套必须要用子标签和路由占位符决定
 const router = new Router({
+    mode: 'history',
+    base: '/admin',
     routes: [
         {path: '/', redirect: '/login'},
         {path: '/login', component: Login},
