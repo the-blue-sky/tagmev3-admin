@@ -1,10 +1,5 @@
 // vue.config.js
 
-const path = require('path');
-const webpack = require('webpack')
-const CompressionWebpackPlugin = require('compression-webpack-plugin')
-const productionGzipExtensions = ['js', 'css']
-
 // vue3之后编译完成不再生成build目录 所有相关配置都走默认 要修改配置就要在根目录创建这个文件
 module.exports = {
     // vue3之后baseUrl改成了publicPath 如果应用被部署在 https://www.my-app.com/my-app/，则设置 publicPath 为 /my-app/ 默认是'/'
@@ -32,29 +27,5 @@ module.exports = {
         // 如果前端应用和后端 API 服务器没有运行在同一个主机上，需要在开发环境下将 API 请求代理到 API 服务器。这个问题可以通过 vue.config.js 中的 devServer.proxy 选项来配置
         // proxy: 'http://localhost:4000'
     },
-    configureWebpack:{
-        resolve:{
-            alias:{
-                '@':path.resolve(__dirname, './src'),
-                '@i':path.resolve(__dirname, './src/assets'),
-            }
-        },
-        // 解决chunk-vendors.js过大导致的加载缓慢问题
-        plugins: [
-            new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-
-            // 下面是下载的插件的配置
-            new CompressionWebpackPlugin({
-                algorithm: 'gzip',
-                test: new RegExp('\\.(' + productionGzipExtensions.join('|') + ')$'),
-                threshold: 10240,
-                minRatio: 0.8
-            }),
-            new webpack.optimize.LimitChunkCountPlugin({
-                maxChunks: 5,
-                minChunkSize: 100
-            })
-        ]
-    }
     //其他配置....
 }
