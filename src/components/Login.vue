@@ -29,7 +29,8 @@ export default {
     return {
       login_form: {
         nickName: 'admin',
-        password: 'admin'
+        password: 'admin',
+        type: 1
       },
       login_rules: {
         nickName: [
