@@ -6,7 +6,7 @@ module.exports = {
     // 这个值也可以被设置为空字符串 ('') 或是相对路径 ('./')，这样所有的资源都会被链接为相对路径，这样打出来的包可以被部署在任意路径，也可以用在类似 Cordova hybrid 应用的文件系统中
     // publicPath: '/admin',
     // 默认生成文件的位置
-    outputDir: 'dist',
+    outputDir: 'admin',
     // 放置生成的静态资源 (js、css、img、fonts) 的 (相对于 outputDir 的) 目录
     assetsDir: '',
     // 指定生成的 index.html 的输出路径 (相对于 outputDir)。也可以是一个绝对路径 Default: 'index.html'
