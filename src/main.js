@@ -8,7 +8,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
 
 Vue.config.productionTip = false
-axios.defaults.baseURL = 'http://localhost:10000/'
+axios.defaults.baseURL = 'http://localhost:10000/api/'
+// axios.defaults.baseURL = '/api'
 // 对所有请求添加token头
 axios.interceptors.request.use(request => {
     request.headers.token = window.sessionStorage.getItem('token')

@@ -48,7 +48,7 @@ export default {
           if (response.code === 1) {
             // this.$message.success(response);
             window.sessionStorage.setItem("token", response.data.token)
-            await this.$router.push('/home')
+            await this.$router.push('/welcome')
           } else {
             this.$message.error(response);
           }

@@ -26,6 +26,15 @@ module.exports = {
         disableHostCheck: true,
         // 如果前端应用和后端 API 服务器没有运行在同一个主机上，需要在开发环境下将 API 请求代理到 API 服务器。这个问题可以通过 vue.config.js 中的 devServer.proxy 选项来配置
         // proxy: 'http://localhost:4000'
+        proxy: {
+            '/api': {
+                target: 'http://127.0.0.1:10000',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/api': ''
+                }
+            }
+        }
     },
     //其他配置....
 }
