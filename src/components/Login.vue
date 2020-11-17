@@ -3,18 +3,18 @@
     <div class="login_box">
       <!--   头像   -->
       <div class="avatar_box">
-        <img src="../assets/logo.png" alt="">
+        <img src="../assets/logo.jpg" alt="">
       </div>
       <!--   表单   -->
       <el-form label-width="0px" class="form" :model="login_form" :rules="login_rules" ref="loginForm">
         <el-form-item>
           <el-form-item class="input" prop="nickName">
-            <el-input prefix-icon="el-icon-user-solid" v-model="login_form.nickName">用户名</el-input>
-            <el-input prefix-icon="el-icon-lock" v-model="login_form.password" type="password">密码</el-input>
+            <el-input class="loginInput" prefix-icon="el-icon-user-solid" v-model="login_form.nickName">用户名</el-input>
+            <el-input class="loginInput" prefix-icon="el-icon-lock" v-model="login_form.password" type="password">密码</el-input>
           </el-form-item>
           <el-form-item class="btn">
-            <el-button type="primary" @click="loginFunc">登录</el-button>
-            <el-button type="primary" @click="signupFunc">注册</el-button>
+            <el-button class="loginBtn" type="primary" @click="loginFunc">登录</el-button>
+            <el-button class="registerBtn" type="primary" @click="signupFunc">注册</el-button>
           </el-form-item>
         </el-form-item>
       </el-form>
@@ -108,15 +108,18 @@ export default {
     }
   }
 
-  .btn {
-    //align-content: center;
-  }
-
   .form {
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
+    width: 300px;
     transform: translate(-50%, -50%);
+    .loginInput{
+      margin-bottom: 20px;
+    }
+    .registerBtn{
+      float: right;
+    }
   }
 
 }

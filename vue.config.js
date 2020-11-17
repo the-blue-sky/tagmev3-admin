@@ -19,6 +19,14 @@ module.exports = {
     //         .set('assets', resolve('src/assets'))
     //         // .set('styles', resolve('src/assets/styles'))
     // },
+    chainWebpack: config => {
+        config
+          .plugin('html')
+          .tap(args => {
+            args[0].title= '张友谅专属'
+            return args
+          })
+      },
     // webpack-dev-server 相关配置
     devServer: {
         // 调试端口
